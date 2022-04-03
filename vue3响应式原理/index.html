@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue2---vue3实现原理对比</title>
+</head>
+
+<body>
+
+    <script>
+        // vue 2 实现方式
+
+        let person = {
+            name: "章三"
+        }
+        let p = {}
+        Object.defineProperty(p, "name", {
+            get() {
+                return person.name
+            },
+            set(value) {
+                return p.name = value
+            }
+        })
+
+
+
+        /**
+         *  vue3 实现方式
+         * 使用 Proxy 代理的方式 运用set 和get 和deletePrototype 方法 
+         * 解决了vue2中不能直接修改数组问题和删除数据不更新问题 
+         * 和直接修改对象里面的值的问题
+         *  运用Reflect 反射将处理的值返回
+         * 
+         */
+
+        // 
+        let person = {
+            name: "账单",
+            age: 24
+        }
+        let p = new Proxy(person, {
+            get(target, name) {
+                console.log(target, name, 'target,name')
+                return Reflect.get(trage, name)
+            },
+            set(target, name, value) {
+                console.log("修改了", target, name, 'target,name')
+                return Reflect.set(trage, name)
+            },
+            deleteProperty(target, name) {
+                console.log("删除了", target, name, 'target,name')
+                // return delete target[name]
+                return Reflect.deleteProperty(target, name)
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
