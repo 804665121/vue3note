@@ -7,102 +7,102 @@ const routes = [
     redirect: "setup",
     children: [
       {
-        title: "setup",
-        name: "setup",
         meta: {
           title: "setup",
         },
+        name: "setup",
         path: "setup", //setup
+        icon: "DesktopOutlined",
         component: () => import("@/components/SetupHello.vue"),
       },
       {
         meta: {
           title: "计算属性",
         },
-        title: "计算属性",
         name: "component",
         path: "component", //计算属性
+        icon: "CloudOutlined",
         component: () => import("../components/ChangeUser.vue"),
       },
       {
         meta: {
           title: "父子组件传参数",
         },
-        title: "父子组件传参数",
         name: "father",
         path: "father", //父子组件传参数
+        icon: "CommentOutlined",
         component: () => import("../components/Father.vue"),
       },
       {
         meta: {
           title: "自定义ref",
         },
-        title: "自定义ref",
         name: "custom",
         path: "custom", //自定义ref
+        icon: "PaperClipOutlined",
         component: () => import("../components/CustomRef.vue"),
       },
       {
         meta: {
           title: "生命周期",
         },
-        title: "生命周期",
         name: "life",
         path: "life", //生命周期
+        icon: "PropertySafetyOutlined",
         component: () => import("../components/LifeCycle.vue"),
       },
       {
         meta: {
           title: "hooks的用法",
         },
-        title: "hooks的用法",
         path: "hooks", //hooks的用法
         name: "hooks",
+        icon: "PushpinOutlined",
         component: () => import("../components/LifeCycleHook.vue"),
       },
       {
         meta: {
-          title: "计算属性",
+          title: "计算属watch的使用性",
         },
-        title: "watch的使用",
         path: "watch", //watch的使用
         name: "watch",
+        icon: 'ProfileOutlined',
         component: () => import("../components/Watch.vue"),
       },
       {
         meta: {
-          title: "计算属性",
+          title: "watchEffect的使用",
         },
-        title: "watchEffect的使用",
         path: "effect", //watchEffect的使用
         name: "effect",
+        icon: "ScheduleOutlined",
         component: () => import("../components/WatchEffect.vue"),
       },
       {
         meta: {
           title: "Toref的使用",
         },
-        title: "Toref的使用",
         path: "toref", //oref的使用
         name: "toref",
+        icon: "WalletOutlined",
         component: () => import("../components/Toref.vue"),
       },
       {
         meta: {
           title: "Suspense的使用",
         },
-        title: "Suspense的使用",
         path: "toref", //Suspense的使用
         name: "toref",
+        icon: "LaptopOutlined",
         component: () => import("../components/SuspenseInfo"),
       },
       {
         meta: {
           title: "ToRaw的使用",
         },
-        title: "ToRaw的使用",
         path: "toraw", //ToRaw的使用
         name: "toraw",
+        icon: 'MacCommandOutlined',
         component: () => import("../components/ToRaw.vue"),
       },
     ],

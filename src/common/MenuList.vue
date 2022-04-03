@@ -1,52 +1,32 @@
 <template>
-  <div>
+  <a-layout-sider v-model:collapsed="isCollapsed" collapsible>
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       mode="inline"
       theme="dark"
     >
-      <a-menu-item v-for="(item, index) in menuList.children" :key="index + ''">
+      <a-menu-item v-for="(item, index) in menuList.children" :key="index">
         <template #icon>
-          <MailOutlined />
+          <!-- <component :is="antIcons[icons[index]]"  /> -->
+            <component :is="antIcons[item.icon]"  />
         </template>
-        <span>{{ item.title }}</span>
+        <span>{{ item.meta.title }}</span>
       </a-menu-item>
     </a-menu>
-  </div>
+  </a-layout-sider>
 </template>
 
 <script>
-import {
-  DesktopOutlined,
-  AppstoreOutlined,
-  InboxOutlined,
-  MailOutlined,
-  UserOutlined,
-} from "@ant-design/icons-vue";
-
+import { ref } from "vue";
 import { routes } from "@/router/index";
 import { reactive, toRefs } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 import { useRoute, useRouter } from "vue-router";
 import { useContentStore } from "@/store/content";
+import * as antIcons from '@ant-design/icons-vue';
 
-const icon = [
-  <DesktopOutlined />,
-  <AppstoreOutlined />,
-  <AppstoreOutlined />,
-  <MailOutlined />,
-  <InboxOutlined />,
-];
 export default {
-  components: {
-    UserOutlined,
-    DesktopOutlined,
-    MailOutlined,
-    AppstoreOutlined,
-    InboxOutlined,
-  },
-
   setup() {
     let menuList = reactive(routes[0]);
     let useContent = useContentStore(); //使用的时候需要用变量接收再处理
@@ -68,6 +48,7 @@ export default {
     return {
       menuList,
       ...toRefs(state),
+      antIcons
     };
   },
 };
