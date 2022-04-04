@@ -25,11 +25,7 @@
             <button @click="changeSum">修改pinia里面的sum</button>
           </template>
           <div class="content">
-            <router-view v-slot="{ Component }">
-              <transition name="fade">
-                <component :is="Component" />
-              </transition>
-            </router-view>
+            <router-view> </router-view>
           </div>
         </a-card>
       </a-layout-content>
