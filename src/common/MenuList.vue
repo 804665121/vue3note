@@ -6,7 +6,7 @@
       mode="inline"
       theme="dark"
     >
-      <a-menu-item v-for="(item, index) in menuList.children" :key="index">
+      <a-menu-item v-for="(item, index) in menuList.children" :key="index+''">
         <template #icon>
           <!-- <component :is="antIcons[icons[index]]"  /> -->
             <component :is="antIcons[item.icon]"  />
@@ -28,6 +28,7 @@ import * as antIcons from '@ant-design/icons-vue';
 
 export default {
   setup() {
+    let isCollapsed=ref(false)
     let menuList = reactive(routes[0]);
     let useContent = useContentStore(); //使用的时候需要用变量接收再处理
     let state = reactive({
@@ -41,14 +42,14 @@ export default {
       (newVal) => {
         routerName = menuList.children[newVal];
         router.push(routerName.name);
-        useContent.updateTitle(routerName.title); //更新title的值
+        useContent.updateTitle(routerName); //更新title的值
       },
       { immediate: true } //初始化的时候执行一次
     );
     return {
       menuList,
       ...toRefs(state),
-      antIcons
+      antIcons,isCollapsed
     };
   },
 };

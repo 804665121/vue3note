@@ -1,5 +1,14 @@
 // import { defineAsyncComponent } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+NProgress.configure({
+    easing: 'ease', // 动画方式
+    speed: 500, // 递增进度条的速度
+    showSpinner: false, // 是否显示加载ico
+    trickleSpeed: 200, // 自动递增间隔
+    minimum: 0.3 // 初始化时的最小百分比
+  })
 const routes = [
   {
     path: "/",
@@ -113,11 +122,20 @@ const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
   history: createWebHistory(),
   routes, // `routes: routes` 的缩写
+  scrollBehavior: () => ({
+    y: 0,
+  }),
 });
 
 router.beforeEach((to, form, next) => {
   document.title = to.meta.title;
+  NProgress.start()
   next();
 });
+// 当路由进入后：关闭进度条
+router.afterEach(() => {
+  // 在即将进入新的页面组件前，关闭掉进度条
+  NProgress.done()
+})
 
 export { router, routes };

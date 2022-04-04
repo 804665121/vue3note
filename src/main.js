@@ -7,13 +7,10 @@ import { router } from "./router";
 import "ant-design-vue/dist/antd.css";
 
 import store from "./store";
+
 // 创建应用实例对象 vue 实例( 类似于之前vue2中的vm,但app比vm更“轻” 内容更少)
 const app = createApp(App);
-// [Button, Icon].forEach((com) => {
-//   app.use(com);
-// });
-
-console.log(router);
+console.log(app);
 app.use(store);
 app.use(Antd);
 app.use(router);

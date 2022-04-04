@@ -4,19 +4,19 @@ export const useContentStore = defineStore({
   state: () => {
     //定义state的值
     return {
-      title: "",
+      routeInfo: {},
       sum: 0,
     };
   },
   getters: {
     all: (state) => {
-      return "getters:" + state.title;
+      return "getters:" + state.routeInfo.meta.title;
     },
   },
   actions: {
-    updateTitle(title) {
+    updateTitle(val) {
       //更新title的值
-      this.title = title;
+      this.routeInfo = val;
     },
     changeSum() {
       //调用actions内部的方法
