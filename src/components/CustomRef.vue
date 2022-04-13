@@ -1,7 +1,12 @@
 <template>
   <h1>自定义ref</h1>
   <div>
-    <input type="text" v-model="keyword" />
+    <h2>防抖函数的实现</h2>
+    <div>
+        请输入内容信息:<input type="text" v-model="keyword" />
+    </div>
+    <hr>
+    <h3>输入2s之后再更新页面</h3>
     <span>{{ keyword }}</span>
   </div>
 </template>
@@ -32,7 +37,7 @@ export default {
         };
       });
     }
-    let keyword = useCustomRef("hello", 1000);
+    let keyword = useCustomRef("", 1000);
     return {
       keyword,
     };

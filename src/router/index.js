@@ -13,14 +13,14 @@ const routes = [
   {
     path: "/",
     component: () => import("../view/Home.vue"),
-    redirect: "setup",
+    // redirect: "setup",
     children: [
       {
         meta: {
           title: "setup",
         },
         name: "setup",
-        path: "setup", //setup
+        path: "/setup", //setup
         icon: "DesktopOutlined",
         component: () => import("@/components/SetupHello.vue"),
       },
@@ -29,16 +29,30 @@ const routes = [
           title: "计算属性",
         },
         name: "component",
-        path: "component", //计算属性
+        path: "/component", //计算属性
         icon: "CloudOutlined",
         component: () => import("../components/ChangeUser.vue"),
+        children:[{
+          name: "details",
+          path: "/details", //setup
+          icon: "DesktopOutlined",
+          title:"详情页面",
+          component: () => import("@/components/Details.vue"),
+        },
+        {
+          name: "component",
+          path: "/component", //计算属性
+          icon: "CloudOutlined",
+          title:"详情页面2",
+          component: () => import("../components/ChangeUser.vue"),
+        }]
       },
       {
         meta: {
           title: "父子组件传参数",
         },
         name: "father",
-        path: "father", //父子组件传参数
+        path: "/father", //父子组件传参数
         icon: "CommentOutlined",
         component: () => import("../components/Father.vue"),
       },
@@ -47,7 +61,7 @@ const routes = [
           title: "自定义ref",
         },
         name: "custom",
-        path: "custom", //自定义ref
+        path: "/custom", //自定义ref
         icon: "PaperClipOutlined",
         component: () => import("../components/CustomRef.vue"),
       },
@@ -56,7 +70,7 @@ const routes = [
           title: "生命周期",
         },
         name: "life",
-        path: "life", //生命周期
+        path: "/life", //生命周期
         icon: "PropertySafetyOutlined",
         component: () => import("../components/LifeCycle.vue"),
       },
@@ -64,7 +78,7 @@ const routes = [
         meta: {
           title: "hooks的用法",
         },
-        path: "hooks", //hooks的用法
+        path: "/hooks", //hooks的用法
         name: "hooks",
         icon: "PushpinOutlined",
         component: () => import("../components/LifeCycleHook.vue"),
@@ -73,7 +87,7 @@ const routes = [
         meta: {
           title: "计算属watch的使用性",
         },
-        path: "watch", //watch的使用
+        path: "/watch", //watch的使用
         name: "watch",
         icon: 'ProfileOutlined',
         component: () => import("../components/Watch.vue"),
@@ -82,7 +96,7 @@ const routes = [
         meta: {
           title: "watchEffect的使用",
         },
-        path: "effect", //watchEffect的使用
+        path: "/effect", //watchEffect的使用
         name: "effect",
         icon: "ScheduleOutlined",
         component: () => import("../components/WatchEffect.vue"),
@@ -91,7 +105,7 @@ const routes = [
         meta: {
           title: "Toref的使用",
         },
-        path: "toref", //oref的使用
+        path: "/toref", //oref的使用
         name: "toref",
         icon: "WalletOutlined",
         component: () => import("../components/Toref.vue"),
@@ -100,7 +114,7 @@ const routes = [
         meta: {
           title: "Suspense的使用",
         },
-        path: "toref", //Suspense的使用
+        path: "/toref", //Suspense的使用
         name: "toref",
         icon: "LaptopOutlined",
         component: () => import("../components/SuspenseInfo"),
@@ -109,10 +123,18 @@ const routes = [
         meta: {
           title: "ToRaw的使用",
         },
-        path: "toraw", //ToRaw的使用
+        path: "/toraw", //ToRaw的使用
         name: "toraw",
         icon: 'MacCommandOutlined',
         component: () => import("../components/ToRaw.vue"),
+      },
+      {
+        meta: {
+          title: "详情页面",
+        },
+        path: "/details", //ToRaw的使用
+        name: "details",
+        component: () => import("../components/Details.vue"),
       },
     ],
   },

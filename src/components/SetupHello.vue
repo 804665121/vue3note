@@ -1,5 +1,7 @@
 <template>
   <h1>初识Setup</h1>
+
+  <button @click="goDetails">goDetails</button>
   <div>{{ num }}</div>
   <div>{{ job.type }}</div>
   <div>{{ job.name }}</div>
@@ -19,6 +21,7 @@
 <script>
 import { reactive, ref } from "vue";
 import HelloWorld from "./HelloWorld.vue";
+import { router } from "@/router";
 export default {
   components: { HelloWorld },
   name: "setup",
@@ -71,12 +74,23 @@ export default {
     function setSonVal(val) {
       console.log("helloworld传递过来的值:" + val);
     }
+
+    function goDetails() {
+      //
+      router.push({
+        name: "details",
+        query: {
+          id: 1,
+        },
+      });
+    }
     return {
       num,
       add,
       ...p,
       changeObj,
       setSonVal,
+      goDetails
     };
   },
 };

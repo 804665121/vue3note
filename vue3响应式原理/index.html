@@ -12,22 +12,18 @@
 
     <script>
         // vue 2 实现方式
-
-        let person = {
-            name: "章三"
-        }
-        let p = {}
-        Object.defineProperty(p, "name", {
-            get() {
-                return person.name
-            },
-            set(value) {
-                return p.name = value
-            }
-        })
-
-
-
+        // let person = {
+        //     name: "章三"
+        // }
+        // let p = {}
+        // Object.defineProperty(p, "name", {
+        //     get() {
+        //         return person.name
+        //     },
+        //     set(value) {
+        //         return p.name = value
+        //     }
+        // })
         /**
          *  vue3 实现方式
          * 使用 Proxy 代理的方式 运用set 和get 和deletePrototype 方法 
@@ -56,8 +52,61 @@
                 // return delete target[name]
                 return Reflect.deleteProperty(target, name)
             }
-
         })
+
+
+        class Persons {
+
+
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+        }
+        class Student extends Persons {
+            constructor(name, age) {
+                super(name, age)
+            }
+            drink() {
+                console.log(`我是${this.name},今年${this.age}岁了`)
+            }
+        }
+        let s = new Student("章安", 20)
+        s.drink()
+
+
+        // 防抖函数
+        function debounce(fun, delay) {
+            let timer = null;
+            return function (...agrs) {
+                if (timer) clearTimeout(timer)
+                setTimeout(() => {
+                    fun.apply(this, agrs)
+                }, delay);
+            }
+        }
+
+        debounce(function () {
+            console.log("1000s")
+        }, 1000)()
+
+
+        // 防抖函数
+
+        function throttle(func, wait) {
+            let timerout;
+            return function () {
+                let context = this;
+                let agrs = arguments;
+                if (!timeout) {
+                    timerout = setTimeout(() => {
+                        timerout = null;
+                        func.apply(context, args)
+                    }, wait)
+                }
+            }
+
+        }
     </script>
 
 </body>

@@ -7,8 +7,13 @@
       <a-layout-content>
         <a-layout-header>
           <div>
-            <component :is="antIcons[routeInfo.icon]"></component>
-            {{ routeInfo.meta.title }}
+            <a-tag>Tag 1</a-tag>
+            <a-tag
+              ><a href="https://github.com/vueComponent/ant-design"
+                >Link</a
+              ></a-tag
+            >
+            <a-tag closable @close.prevent>Prevent Default</a-tag>
           </div>
           <div>
             <a-space>
@@ -20,7 +25,7 @@
           </div>
         </a-layout-header>
         <a-card>
-          <template v-slot:title>
+          <template #title>
             <div>读取pinia内部的方法:{{ sum }} ----{{ all }}</div>
             <button @click="changeSum">修改pinia里面的sum</button>
           </template>
@@ -48,7 +53,6 @@ export default {
       info.addSum(3);
     };
     let { routeInfo, sum, all } = storeToRefs(info); //使用pinia的storeRefs 对数据进行解构 直接解构的数据是非响应式的
-    console.log(routeInfo, "routeInfo");
     return {
       routeInfo,
       sum,
