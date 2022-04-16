@@ -1,21 +1,23 @@
 <template>
-  <h1>初识Setup</h1>
+  <div>
+    <h1>初识Setup</h1>
 
-  <button @click="goDetails">goDetails</button>
-  <div>{{ num }}</div>
-  <div>{{ job.type }}</div>
-  <div>{{ job.name }}</div>
-  <span v-for="(item, index) in jobArr" :key="index">{{ item.name }}</span>
-  <p>{{ objArr.work }}</p>
-  <p>{{ objArr.age }}</p>
-  <p>{{ objArr.a.b.c }}</p>
-  <button @click="add">num++</button>
-  <button @click="changeObj">修改对象中的值</button>
-  <hello-world msg="原理信息" info="hello" @hello="setSonVal">
-    <template v-slot:info>
-      <span>这是父组件传递过来的值</span>
-    </template>
-  </hello-world>
+    <button @click="goDetails">goDetails</button>
+    <div>{{ num }}</div>
+    <div>{{ job.type }}</div>
+    <div>{{ job.name }}</div>
+    <span v-for="(item, index) in jobArr" :key="index">{{ item.name }}</span>
+    <p>{{ objArr.work }}</p>
+    <p>{{ objArr.age }}</p>
+    <p>{{ objArr.a.b.c }}</p>
+    <button @click="add">num++</button>
+    <button @click="changeObj">修改对象中的值</button>
+    <hello-world msg="原理信息" info="hello" @hello="setSonVal">
+      <template v-slot:info>
+        <span>这是父组件传递过来的值</span>
+      </template>
+    </hello-world>
+  </div>
 </template>
 
 <script>
@@ -90,7 +92,7 @@ export default {
       ...p,
       changeObj,
       setSonVal,
-      goDetails
+      goDetails,
     };
   },
 };

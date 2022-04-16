@@ -1,8 +1,10 @@
 <template>
-  <button @click="show = !show">切换显示/隐藏</button>
-  <div v-if="show">
-    <div>求和: {{ sum }}</div>
-    <button @click="sum++">累加</button>
+  <div>
+    <button @click="show = !show">切换显示/隐藏</button>
+    <div v-if="show">
+      <div>求和: {{ sum }}</div>
+      <button @click="sum++">累加</button>
+    </div>
   </div>
 </template>
 

@@ -7,6 +7,8 @@ import { router } from "./router";
 // import "ant-design-vue/dist/antd.css";
 import { setupAntd } from "./antd";
 import store from "./store";
+
+
 // 创建应用实例对象 vue 实例( 类似于之前vue2中的vm,但app比vm更“轻” 内容更少)
 const app = createApp(App);
 setupAntd(app);

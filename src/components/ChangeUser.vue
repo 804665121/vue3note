@@ -5,6 +5,10 @@
   <p>{{ person.fullName }}</p>
 
   <div>全名: <input v-model="person.fullName" /></div>
+
+  <div>
+    <router-view />
+  </div>
 </template>
 
 <script>

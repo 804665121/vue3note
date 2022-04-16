@@ -40,7 +40,7 @@ import Watch from "./components/Watch.vue";
 import WatchEffect from "./components/WatchEffect.vue";
 import SuspenseInfo from "./components/SuspenseInfo.vue";
 // import Home from './view/Home.vue';
-
+import { watch } from "vue";
 export default {
   name: "App",
   components: {
@@ -68,7 +68,20 @@ export default {
   /* text-align: center; */
   color: #2c3e50;
 }
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.5s;
+}
 
+.fade-transform-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
 html,
 body {
   margin: 0;

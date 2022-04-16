@@ -6,33 +6,62 @@
     <a-layout>
       <a-layout-content>
         <a-layout-header>
-          <div>
-            <a-tag>Tag 1</a-tag>
-            <a-tag
-              ><a href="https://github.com/vueComponent/ant-design"
-                >Link</a
-              ></a-tag
-            >
-            <a-tag closable @close.prevent>Prevent Default</a-tag>
+          <div class="header">
+            <a-breadcrumb>
+              <a-breadcrumb-item
+                v-for="(item, index) in routeList.children"
+                :key="index"
+              >
+                <span>
+                  {{ item.meta.title }}
+                </span>
+                <template #overlay>
+                  <a-menu
+                    v-for="(child, cindex) in item.children"
+                    :key="cindex"
+                  >
+                    <a-menu-item>
+                      {{ child.meta.title }}
+                    </a-menu-item>
+                  </a-menu>
+                </template>
+              </a-breadcrumb-item>
+            </a-breadcrumb>
+            <div>
+              <a-space>
+                <sound-outlined />
+                <smile-outlined />
+                <sync-outlined />
+                <team-outlined />
+              </a-space>
+            </div>
           </div>
-          <div>
-            <a-space>
-              <sound-outlined />
-              <smile-outlined />
-              <sync-outlined />
-              <team-outlined />
-            </a-space>
+          <!-- tabs -->
+          <div style="width: 100%; height: 50px; padding: 10px 20px">
+            <a-tabs
+              v-model:activeKey="activeKey"
+              type="editable-card"
+              @edit="onEdit"
+              @tabClick="changeTab"
+            >
+              <a-tab-pane
+                v-for="item in routerArr"
+                :key="item.sindex"
+               :tab="item.meta.title"
+                tabPosition="bottom"
+                animated
+              >
+              </a-tab-pane>
+            </a-tabs>
           </div>
         </a-layout-header>
+        <!-- <transition name="fade-transform" mode="out-in" appear> -->
         <a-card>
-          <template #title>
-            <div>读取pinia内部的方法:{{ sum }} ----{{ all }}</div>
-            <button @click="changeSum">修改pinia里面的sum</button>
-          </template>
           <div class="content">
             <router-view> </router-view>
           </div>
         </a-card>
+        <!-- </transition> -->
       </a-layout-content>
       <a-layout-footer>Footer</a-layout-footer>
     </a-layout>
@@ -42,24 +71,48 @@
 <script>
 import MenuList from "@/common/MenuList.vue";
 import * as antIcons from "@ant-design/icons-vue";
+import { router, routes } from "../router/index";
 import { useContentStore } from "@/store/content";
+import { reactive } from "vue";
 import { storeToRefs } from "pinia";
 export default {
   components: { MenuList, ...antIcons },
   setup() {
-    let info = useContentStore();
+    let store = useContentStore();
+    let { Sindex, index, routerArr } = storeToRefs(store);
+    const activeKey = Sindex;
+    let routeList = reactive(routes[1]);
+    routeList.children.filter((item) => {
+      item.breadcrumbName = item.meta.title;
+    });
 
-    const changeSum = () => {
-      info.addSum(3);
+    // tab被切换
+    const changeTab = (e) => {
+      //修改公共左侧菜单栏
+      let obj = reactive({});
+      store.routerArr.forEach((elem) => {
+        if (elem.sindex == e) {
+          obj = elem;
+        }
+      });
+      router.push(obj.path);
+      store.updateTitle(obj);
+      store.setIndex(obj.index, obj.sindex);
     };
-    let { routeInfo, sum, all } = storeToRefs(info); //使用pinia的storeRefs 对数据进行解构 直接解构的数据是非响应式的
+
+    // 删除tabs
+    const onEdit = (index) => {
+      store.deleteRouteArr(index);
+    };
+
     return {
-      routeInfo,
-      sum,
-      changeSum,
-      info,
-      all,
-      antIcons,
+      onEdit,
+      Sindex,
+      index,
+      routerArr,
+      routeList,
+      changeTab,
+      activeKey,
     };
   },
 };
@@ -69,28 +122,33 @@ export default {
 .ant-layout {
   height: 100vh;
 }
-
 .ant-layout-header {
+  background-color: #fdfdfd;
+  height: auto;
+  padding: 0;
+}
+.header {
+  padding: 0 20px;
+  box-shadow: inset 0px -1px 0px 0px #d9d9d9;
   display: flex;
   justify-content: space-between;
-  align-self: center;
-  background-color: #fdfdfd;
-  box-shadow: inset 0px -2px 0px 0px #d9d9d9;
+  align-items: center;
+  align-content: center;
+}
+
+.ant-tag {
+  padding: 8px 20px;
+  border-bottom: none;
 }
 .content {
+  padding: 20px;
   background-color: #fff;
 }
 .ant-layout-footer {
   background-color: #fdfdfd;
   box-shadow: inset 0px 2px 0px 0px #d9d9d9;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.ant-card {
+  margin: 20px;
 }
 </style>
