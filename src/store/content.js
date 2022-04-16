@@ -75,11 +75,17 @@ initialValue	可选。传递给函数的初始值
     },
     deleteRouteArr(num) {
       if (this.routerArr.length <= 1) {
-        message.warn("最后一页了,不能再关闭了!");
-        return;
+        return message.warn("最后一页了,不能再关闭了!");
       }
       let index = this.routerArr.findIndex((item) => item.sindex == num);
       this.routerArr.splice(index, 1);
+      if (this.Sindex == num || this.index == num) {
+        this.setIndex(
+          this.routerArr[index - 1].index,
+          this.routerArr[index - 1].sindex
+        );
+        this.updateTitle(this.routerArr[index - 1])
+      }
     },
   },
 });

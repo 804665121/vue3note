@@ -39,6 +39,7 @@
           <!-- tabs -->
           <div style="width: 100%; height: 50px; padding: 10px 20px">
             <a-tabs
+              hide-add
               v-model:activeKey="activeKey"
               type="editable-card"
               @edit="onEdit"
@@ -47,7 +48,7 @@
               <a-tab-pane
                 v-for="item in routerArr"
                 :key="item.sindex"
-               :tab="item.meta.title"
+                :tab="item.meta.title"
                 tabPosition="bottom"
                 animated
               >

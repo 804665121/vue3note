@@ -1,9 +1,5 @@
 <template>
   <a-layout-sider v-model:collapsed="isCollapsed" collapsible>
-    {{ openKeys }}
-    {{ selectedKeys }}
-    {{ store.index }}
-    {{ store.Sindex }}
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
@@ -40,8 +36,8 @@
 import { ref } from "vue";
 import { routes } from "@/router/index";
 import { effect, reactive, toRefs } from "@vue/reactivity";
-import { watchEffect, computed, watch } from "@vue/runtime-core";
-import { useRoute, useRouter } from "vue-router";
+import { watch } from "@vue/runtime-core";
+import { useRouter } from "vue-router";
 import { useContentStore } from "@/store/content";
 import * as antIcons from "@ant-design/icons-vue";
 import { storeToRefs } from "pinia";
@@ -72,16 +68,14 @@ export default {
       state.selectedKeys = [sindex];
     });
 
-    if(!routerArr.length){
-
-      console.log(menuList.children[0].children[0],'menuList.children[0].children[0]');
-       store.updateRouteArr(menuList.children[0].children[0])
-
-    } ;
+    if (!routerArr.length) {
+      store.updateRouteArr(menuList.children[0].children[0]);
+    }
     const dealMenuData = () => {
       //初始化处理菜单数据
       menuList.children.filter((item, index) => {
         item.index = `${index}1_0`;
+        item.sindex = item.index;
         if (item.children) {
           item.children.filter((son, sindex) => {
             son.sindex = item.index + sindex + "_2"; //  子类下标等于自己的下标
@@ -99,15 +93,17 @@ export default {
     });
 
     function showMenu({ keyPath, key }) {
-      console.log(keyPath, key, menuList.children, "2323232323showchange");
       let obj = {};
       menuList.children.forEach((e) => {
-        e.children &&
+        if (e.index == key) {
+          obj = e;
+        } else if (e.children) {
           e.children.forEach((s) => {
             if (s.sindex == key) {
               obj = s;
             }
           });
+        }
       });
       store.updateRouteArr(obj); //更新存储的路由
       store.updateTitle(obj); //当前路由
