@@ -121,7 +121,7 @@ export default {
 
 <style lang="less" scoped>
 .ant-layout {
-  height: 100vh;
+  // height:100vh;
 }
 .ant-layout-header {
   background-color: #fdfdfd;
@@ -144,6 +144,8 @@ export default {
 .content {
   padding: 20px;
   background-color: #fff;
+  overflow: auto;
+  overflow-y: scroll;
 }
 .ant-layout-footer {
   background-color: #fdfdfd;

@@ -1,5 +1,5 @@
 <template>
-  <a-layout-sider v-model:collapsed="isCollapsed" collapsible>
+  <a-layout-sider  style="min-height:100vh" v-model:collapsed="isCollapsed" collapsible>
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"

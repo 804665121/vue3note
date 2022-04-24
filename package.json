@@ -11,6 +11,7 @@
     "@ant-design/icons-vue": "^6.1.0",
     "ant-design-vue": "^2.2.8",
     "core-js": "^3.8.3",
+    "echarts": "^5.3.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.13",
     "pinia-plugin-persist": "^1.0.0",

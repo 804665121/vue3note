@@ -134,7 +134,16 @@ const routes = [
         path: "/23", //setup
         icon: "DesktopOutlined",
         component: () => import("@/components/ChangeUser.vue"),
-      }
+      },
+    {
+      meta: {
+        title: "echarts",
+      },
+      name: "echarts",
+      path: "/echarts", //setup
+      icon: "DesktopOutlined",
+      component: () => import("@/view/Echarts"),
+    }
      
     ],
   },
