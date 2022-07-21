@@ -106,6 +106,18 @@ export default {
       store.deleteRouteArr(index);
     };
 
+    const testFunc = () => {
+      let test = function () {
+        this.name = "zhangsan";
+        console.log("this is a test function");
+      };
+      let obj = {};
+      test.call(obj);
+      console.log(obj.name);
+    };
+
+    testFunc()
+
     return {
       onEdit,
       Sindex,
