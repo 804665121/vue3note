@@ -20,6 +20,34 @@ module.exports = {
                     {
                         title:"reactive函数",
                         path:"/learn/reactive.md"
+                    },
+                    {
+                        title:"生命周期",
+                        path:"/learn/life.md"
+                    },
+                    {
+                        title:"hook",
+                        path:"/learn/hook.md"
+                    },
+                    {
+                        title:"watch的使用",
+                        path:"/learn/watch.md"
+                    },
+                    {
+                        title:"setup",
+                        path:"/learn/setup.md"
+                    },
+                    {
+                        title:"toref的使用",
+                        path:"/learn/toref.md"
+                    },
+                    {
+                        title:"其它",
+                        path:"/learn/other.md"
+                    },
+                    {
+                        title:"与vue2对比",
+                        path:"/learn/flag.md"
                     }
                 ]
             }
