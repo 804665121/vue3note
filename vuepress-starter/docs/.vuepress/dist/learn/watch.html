@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>watch注意事项 | Hello Vue3笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f93fd0e.css" as="style"><link rel="preload" href="/assets/js/app.175be109.js" as="script"><link rel="preload" href="/assets/js/2.3e96f17d.js" as="script"><link rel="preload" href="/assets/js/18.81bc56e1.js" as="script"><link rel="prefetch" href="/assets/js/10.a5587606.js"><link rel="prefetch" href="/assets/js/11.7a65169f.js"><link rel="prefetch" href="/assets/js/12.f7dee84a.js"><link rel="prefetch" href="/assets/js/13.aee09df5.js"><link rel="prefetch" href="/assets/js/14.9b828376.js"><link rel="prefetch" href="/assets/js/15.eac1a56f.js"><link rel="prefetch" href="/assets/js/16.7305790f.js"><link rel="prefetch" href="/assets/js/17.9fc21f29.js"><link rel="prefetch" href="/assets/js/3.8cf05a49.js"><link rel="prefetch" href="/assets/js/4.f1aece4c.js"><link rel="prefetch" href="/assets/js/5.7ef5f63d.js"><link rel="prefetch" href="/assets/js/6.f2da0026.js"><link rel="prefetch" href="/assets/js/7.f5f1cf75.js"><link rel="prefetch" href="/assets/js/8.c93df86c.js"><link rel="prefetch" href="/assets/js/9.015a7c32.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f93fd0e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Hello Vue3笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/learn/" class="nav-link router-link-active">
+  菜单
+</a></div> <a href="https://github.com/804665121/vue3note" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/learn/" class="nav-link router-link-active">
+  菜单
+</a></div> <a href="https://github.com/804665121/vue3note" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>目录</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/ref.html" class="sidebar-link">ref函数</a></li><li><a href="/learn/reactive.html" class="sidebar-link">reactive函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/learn/life.html" class="sidebar-link">生命周期</a></li><li><a href="/learn/hook.html" class="sidebar-link">hook</a></li><li><a href="/learn/watch.html" aria-current="page" class="active sidebar-link">watch的使用</a></li><li><a href="/learn/setup.html" class="sidebar-link">setup</a></li><li><a href="/learn/toref.html" class="sidebar-link">toref的使用</a></li><li><a href="/learn/other.html" class="sidebar-link">其它</a></li><li><a href="/learn/flag.html" class="sidebar-link">与vue2对比</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="watch注意事项"><a href="#watch注意事项" class="header-anchor">#</a> watch注意事项</h1> <ul><li><p>监视<strong>ref</strong>定义的响应式数据,使用<strong>watch监视一个值</strong></p> <div class="language- extra-class"><pre class="language-text"><code> let sum = ref(1);
+ immediate:true 表示初始化的时候执行一次
+  watch(
+      sum,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;sum修改了&quot;);
+      },
+      { immediate: true }
+    );
+</code></pre></div></li> <li><p>监控多个<strong>ref</strong>值的情况,<strong>监视多个值</strong></p> <div class="language- extra-class"><pre class="language-text"><code>监视多个值的情况,watch的第一个值接收的是一个数据,返回的newval和oldVal也是一个数据
+
+    let sum = ref(1);
+    let msg = ref(&quot;hello&quot;);
+    watch([sum, msg], (newVal, oldVal) =&gt; {
+          console.log(newVal, oldVal, &quot;sum修改了&quot;);
+    });
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>全部属性</strong></p> <ul><li>使用<strong>watch</strong>监测的时候无法准确监测到到<strong>oldVal</strong>.</li> <li>强制开启了<strong>deep</strong>深度监视(deep无法关闭)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+watch(person, (newVal, oldVal) =&gt; {
+   console.log(newVal, oldVal, &quot;person 监视的值&quot;);
+});
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>某个属性</strong></p> <ul><li>需要使用箭头函数的方式,才能监测要数据变化 ,直接写无法使用</li></ul> <div class="language- extra-class"><pre class="language-text"><code> let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+    watch(
+      () =&gt; person.age,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;person.age 监视的值&quot;);
+      }
+    );
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>某些属性</strong></p> <p>与<strong>ref</strong>的响应式数据一致也是传递一个数组</p> <div class="language- extra-class"><pre class="language-text"><code>
+  let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+ watch([() =&gt; person.age, () =&gt; person.name], (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;person.age 监视的值&quot;);
+});
+</code></pre></div></li> <li><p>特殊情况</p> <p>监视<strong>reactive</strong>定义的对象中的<strong>某个属性</strong>,开启<strong>deep:true</strong>有效</p> <div class="language- extra-class"><pre class="language-text"><code> let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+   watch(
+      () =&gt; person.job,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;person.job 监视的值&quot;);
+      },
+      { deep: true }
+    );//此处由于监视的是reactive定义的对象中的某个属性,所有deep配置有效果
+</code></pre></div><p>在watch中,使用<strong>ref</strong>定一个的对象,在监视值的时候需要加上.value,</p> <div class="language- extra-class"><pre class="language-text"><code> let person1 = ref({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+//第一种方式
+    watch(person1.value, (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;oldVal&quot;);
+    });
+  //第二种方式
+    watch(person1, (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;oldVal&quot;);
+    },{deep:true});
+</code></pre></div></li></ul> <h1 id="_4-watcheffect函数"><a href="#_4-watcheffect函数" class="header-anchor">#</a> 4.watchEffect函数</h1> <ul><li><p><strong>watch</strong>使用:既要指明函数的属性,也要指明监视的回调</p></li> <li><p><strong>watchEffect</strong>:不需要指明监视哪个属性,监视的回调中用到哪个属性,那就监视哪个属性</p></li> <li><p><strong>watchEffect</strong>有点像<strong>computed</strong>:</p> <ul><li><p>但是<strong>computed</strong>注重的是计算出来的值(<strong>回调函数的返回值)</strong>,所以必须要写返回值</p></li> <li><p>而<strong>watchEffect</strong>更注重的是过程(<strong>回调函数的函数体</strong>),所以不用写返回值.</p> <div class="language- extra-class"><pre class="language-text"><code>watchEffect所指定的回调中用到的数据只要发生改变,则直接执行回调
+ watchEffect(() =&gt; {
+      const x = person.age;
+      console.log(&quot;回调执行了&quot;);
+ });
+</code></pre></div></li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learn/hook.html" class="prev">
+        hook
+      </a></span> <span class="next"><a href="/learn/setup.html">
+        setup
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.175be109.js" defer></script><script src="/assets/js/2.3e96f17d.js" defer></script><script src="/assets/js/18.81bc56e1.js" defer></script>
+  </body>
+</html>

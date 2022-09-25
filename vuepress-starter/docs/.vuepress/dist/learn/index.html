@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>注意点:Vue2 和vue3 不建议混合使用语法结构 | Hello Vue3笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f93fd0e.css" as="style"><link rel="preload" href="/assets/js/app.175be109.js" as="script"><link rel="preload" href="/assets/js/2.3e96f17d.js" as="script"><link rel="preload" href="/assets/js/8.c93df86c.js" as="script"><link rel="prefetch" href="/assets/js/10.a5587606.js"><link rel="prefetch" href="/assets/js/11.7a65169f.js"><link rel="prefetch" href="/assets/js/12.f7dee84a.js"><link rel="prefetch" href="/assets/js/13.aee09df5.js"><link rel="prefetch" href="/assets/js/14.9b828376.js"><link rel="prefetch" href="/assets/js/15.eac1a56f.js"><link rel="prefetch" href="/assets/js/16.7305790f.js"><link rel="prefetch" href="/assets/js/17.9fc21f29.js"><link rel="prefetch" href="/assets/js/18.81bc56e1.js"><link rel="prefetch" href="/assets/js/3.8cf05a49.js"><link rel="prefetch" href="/assets/js/4.f1aece4c.js"><link rel="prefetch" href="/assets/js/5.7ef5f63d.js"><link rel="prefetch" href="/assets/js/6.f2da0026.js"><link rel="prefetch" href="/assets/js/7.f5f1cf75.js"><link rel="prefetch" href="/assets/js/9.015a7c32.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f93fd0e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Hello Vue3笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/learn/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  菜单
+</a></div> <a href="https://github.com/804665121/vue3note" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/learn/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  菜单
+</a></div> <a href="https://github.com/804665121/vue3note" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>目录</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/ref.html" class="sidebar-link">ref函数</a></li><li><a href="/learn/reactive.html" class="sidebar-link">reactive函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/learn/life.html" class="sidebar-link">生命周期</a></li><li><a href="/learn/hook.html" class="sidebar-link">hook</a></li><li><a href="/learn/watch.html" class="sidebar-link">watch的使用</a></li><li><a href="/learn/setup.html" class="sidebar-link">setup</a></li><li><a href="/learn/toref.html" class="sidebar-link">toref的使用</a></li><li><a href="/learn/other.html" class="sidebar-link">其它</a></li><li><a href="/learn/flag.html" class="sidebar-link">与vue2对比</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id=""><a href="#" class="header-anchor">#</a></h1> <p><strong>注意点:Vue2 和vue3 不建议混合使用语法结构</strong></p> <ol><li><p>尽量不要与vue2.x配置混合</p> <ul><li>vue2配置中的 data,methods,computed 中可以访问到setup方法中的属性,方法</li> <li>但是在setup中 <strong>不能访问</strong>vue2配置中的(data,methods,computed)</li> <li>如何存在重名 则setup中有优先</li></ul></li> <li><p>setup不能是一个async函数,因为返回值不再是return对象,而是promise,模版看不到对象中的属性</p></li></ol> <h1 id="_1-ref函数"><a href="#_1-ref函数" class="header-anchor">#</a> 1.ref函数</h1> <ul><li><p>作用:定义一个响应式的数据</p></li> <li><p>语法</p> <div class="language- extra-class"><pre class="language-text"><code>const age=ref(initValue)
+</code></pre></div><ul><li>创建一个包含响应式的<strong>引用对象(reference)</strong></li> <li>js中操作数据xx.value</li> <li>模版中读取数据不需要.value 直接与vue2 读取一致</li></ul></li> <li><p>备注:</p> <ul><li>接收的数据可以是:基本数据类型,也可以是对象类型</li> <li>基本数据类型的数据:响应式依然是 使用 <strong>Object.defineProperty()</strong> 的<strong>get</strong>和<strong>set</strong>完成的</li> <li>对象类型的数据: 内部 使用了Vue3的一个新函数--------<strong>-reactive</strong>函数</li></ul></li></ul> <h1 id="_2-reactive函数"><a href="#_2-reactive函数" class="header-anchor">#</a> 2.reactive函数</h1> <ul><li><p>作用: 定义一个响应式对象类型数据</p></li> <li><p>原理: 通过使用<strong>Proxy</strong>代理的方式实现响应式(数据劫持),并通过<strong>Reflect</strong>操作源对象内部的数据</p></li> <li><p>语法</p> <div class="language- extra-class"><pre class="language-text"><code>let objInfo=reactive({
+ name:&quot;123&quot;,
+ age:23,
+ a:{
+  b:{
+  c:2323
+  }
+ }
+})
+</code></pre></div></li> <li><p>备注</p> <ul><li><p>不可以定义基本数据类型</p></li> <li><p>在修改对象里面的值的时候不需要.value 可以直接修改</p> <div class="language- extra-class"><pre class="language-text"><code>objInfo.name=“王五”
+</code></pre></div></li> <li><p>可以处理深层次结构的数据</p> <div class="language- extra-class"><pre class="language-text"><code>objInfo.a.b.c=898989 可以直接修改 无需借助其它api
+</code></pre></div></li></ul></li></ul> <h1 id="_3-vue2和vue3实现原理对比"><a href="#_3-vue2和vue3实现原理对比" class="header-anchor">#</a> 3.vue2和vue3实现原理对比</h1> <h3 id="vue2响应式"><a href="#vue2响应式" class="header-anchor">#</a> Vue2响应式</h3> <p>原理:运用Object.definePrototype进行数据代理给数据绑定 <strong>get</strong>和<strong>set</strong>方法</p> <p>弊端:</p> <ul><li>新增属性 和删除属性页面不会自动更新, 需要借助<strong>this.$set()和 vue.set()</strong></li> <li>直接对数组下标修改,页面不会自动更新</li></ul> <div class="language- extra-class"><pre class="language-text"><code>        let person = {
+            name: &quot;章三&quot;
+        }
+        let p = {}
+        Object.defineProperty(p, &quot;name&quot;, {
+            get() {
+                return person.name
+            },
+            set(value) {
+                return p.name = value
+            }
+        })
+</code></pre></div><h4 id="vue3响应式"><a href="#vue3响应式" class="header-anchor">#</a> Vue3响应式</h4> <ul><li><p>实现原理</p> <ul><li>通过Proxy(代理):拦截对象任意属性的变化:包括属性的 增 删 改 查.</li> <li>通过reflect(反射): 对被代理的对象属性进行操作</li></ul> <div class="language- extra-class"><pre class="language-text"><code>   /**
+         *  vue3 实现方式
+         * 使用 Proxy 代理的方式 运用set 和get 和deletePrototype 方法 
+         * 解决了vue2中不能直接修改数组问题和删除数据不更新问题 
+         * 和直接修改对象里面的值的问题
+         * 运用Reflect 反射将处理的值返回
+         * 
+         */
+  let person = {
+            name: &quot;账单&quot;,
+            age: 24
+        }
+        let p = new Proxy(person, {
+            get(target, name) {
+                console.log(target, name, 'target,name')
+                return Reflect.get(trage, name)
+            },
+            set(target, name, value) {
+                console.log(&quot;修改了&quot;, target, name, 'target,name')
+                return Reflect.set(trage, name)
+            },
+            deleteProperty(target, name) {
+                console.log(&quot;删除了&quot;, target, name, 'target,name')
+                // return delete target[name]
+                return Reflect.deleteProperty(target, name)
+            }
+
+        })
+</code></pre></div></li></ul> <h1 id="_4-setup注意事项"><a href="#_4-setup注意事项" class="header-anchor">#</a> 4.setup注意事项</h1> <ul><li><p>setup执行的时机</p> <p>在beforeCreate之前执行一次,this是undefined</p></li> <li><p>setup的参数</p> <ul><li>props :值为对象,包含组件外部传递过来的值,且组件内部声明接收了的属性</li> <li>context:
+<ul><li>attrs: 值为对象,包含:组件外部传递过来,但没有在props配置中声明的属性,相当于 this.$attrs</li> <li>Slots: 收到的插槽内容,相当于this.$slots</li> <li>emit : 分发自定义事件的函数,相当于this.$emit</li></ul></li></ul></li></ul> <h1 id="_5-watch注意事项"><a href="#_5-watch注意事项" class="header-anchor">#</a> 5.watch注意事项</h1> <ul><li><p>监视<strong>ref</strong>定义的响应式数据,使用<strong>watch监视一个值</strong></p> <div class="language- extra-class"><pre class="language-text"><code> let sum = ref(1);
+ immediate:true 表示初始化的时候执行一次
+  watch(
+      sum,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;sum修改了&quot;);
+      },
+      { immediate: true }
+    );
+</code></pre></div></li> <li><p>监控多个<strong>ref</strong>值的情况,<strong>监视多个值</strong></p> <div class="language- extra-class"><pre class="language-text"><code>监视多个值的情况,watch的第一个值接收的是一个数据,返回的newval和oldVal也是一个数据
+
+    let sum = ref(1);
+    let msg = ref(&quot;hello&quot;);
+    watch([sum, msg], (newVal, oldVal) =&gt; {
+          console.log(newVal, oldVal, &quot;sum修改了&quot;);
+    });
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>全部属性</strong></p> <ul><li>使用<strong>watch</strong>监测的时候无法准确监测到到<strong>oldVal</strong>.</li> <li>强制开启了<strong>deep</strong>深度监视(deep无法关闭)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+watch(person, (newVal, oldVal) =&gt; {
+   console.log(newVal, oldVal, &quot;person 监视的值&quot;);
+});
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>某个属性</strong></p> <ul><li>需要使用箭头函数的方式,才能监测要数据变化 ,直接写无法使用</li></ul> <div class="language- extra-class"><pre class="language-text"><code> let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+    watch(
+      () =&gt; person.age,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;person.age 监视的值&quot;);
+      }
+    );
+</code></pre></div></li> <li><p>监视<strong>reactive</strong> 定义的响应式数据的<strong>某些属性</strong></p> <p>与<strong>ref</strong>的响应式数据一致也是传递一个数组</p> <div class="language- extra-class"><pre class="language-text"><code>
+  let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+ watch([() =&gt; person.age, () =&gt; person.name], (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;person.age 监视的值&quot;);
+});
+</code></pre></div></li> <li><p>特殊情况</p> <p>监视<strong>reactive</strong>定义的对象中的<strong>某个属性</strong>,开启<strong>deep:true</strong>有效</p> <div class="language- extra-class"><pre class="language-text"><code> let person = reactive({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+   watch(
+      () =&gt; person.job,
+      (newVal, oldVal) =&gt; {
+        console.log(newVal, oldVal, &quot;person.job 监视的值&quot;);
+      },
+      { deep: true }
+    );//此处由于监视的是reactive定义的对象中的某个属性,所有deep配置有效果
+</code></pre></div><p>在watch中,使用<strong>ref</strong>定一个的对象,在监视值的时候需要加上.value,</p> <div class="language- extra-class"><pre class="language-text"><code> let person1 = ref({
+      name: &quot;zangsan&quot;,
+      age: 19,
+      job: {
+        j1: 20,
+      },
+    });
+//第一种方式
+    watch(person1.value, (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;oldVal&quot;);
+    });
+  //第二种方式
+    watch(person1, (newVal, oldVal) =&gt; {
+      console.log(newVal, oldVal, &quot;oldVal&quot;);
+    },{deep:true});
+</code></pre></div></li></ul> <h1 id="_4-watcheffect函数"><a href="#_4-watcheffect函数" class="header-anchor">#</a> 4.watchEffect函数</h1> <ul><li><p><strong>watch</strong>使用:既要指明函数的属性,也要指明监视的回调</p></li> <li><p><strong>watchEffect</strong>:不需要指明监视哪个属性,监视的回调中用到哪个属性,那就监视哪个属性</p></li> <li><p><strong>watchEffect</strong>有点像<strong>computed</strong>:</p> <ul><li><p>但是<strong>computed</strong>注重的是计算出来的值(<strong>回调函数的返回值)</strong>,所以必须要写返回值</p></li> <li><p>而<strong>watchEffect</strong>更注重的是过程(<strong>回调函数的函数体</strong>),所以不用写返回值.</p> <div class="language- extra-class"><pre class="language-text"><code>watchEffect所指定的回调中用到的数据只要发生改变,则直接执行回调
+ watchEffect(() =&gt; {
+      const x = person.age;
+      console.log(&quot;回调执行了&quot;);
+ });
+</code></pre></div></li></ul></li></ul> <h1 id="_5-生命周期"><a href="#_5-生命周期" class="header-anchor">#</a> 5.生命周期</h1> <p>Vue3中也可以直接使用Vue2的生命周期</p> <ul><li><strong>beforeDestroy</strong>改名为<strong>beforeUnmount</strong></li> <li><strong>destroyed</strong>改名为<strong>ummounted</strong></li></ul> <p><strong>选项式 API 的生命周期选项和组合式 API 之间的映射</strong></p> <ul><li><p><code>beforeCreate</code> -&gt; 使用 <code>setup()</code></p></li> <li><p><code>created</code> -&gt; 使用 <code>setup()</code></p></li> <li><p><code>beforeMount</code> -&gt; <code>onBeforeMount</code></p></li> <li><p><code>mounted</code> -&gt; <code>onMounted</code></p></li> <li><p><code>beforeUpdate</code> -&gt; <code>onBeforeUpdate</code></p></li> <li><p><code>updated</code> -&gt; <code>onUpdated</code></p></li> <li><p><code>beforeUnmount</code> -&gt; <code>onBeforeUnmount</code></p></li> <li><p><code>unmounted</code> -&gt; <code>onUnmounted</code></p></li> <li><p><code>errorCaptured</code> -&gt; <code>onErrorCaptured</code></p></li> <li><p><code>renderTracked</code> -&gt; <code>onRenderTracked</code></p></li> <li><p><code>renderTriggered</code> -&gt; <code>onRenderTriggered</code></p></li> <li><p><code>activated</code> -&gt; <code>onActivated</code></p></li> <li><p><code>deactivated</code> -&gt; <code>onDeactivated</code></p></li></ul> <p>![截屏2022-04-02 22.20.13](/Users/liulu/Desktop/截屏2022-04-02 22.20.13.png)</p> <h1 id="_6-hook函数"><a href="#_6-hook函数" class="header-anchor">#</a> 6.hook函数</h1> <ul><li>什么是hook?-----本质上的一个函数,把setup函数中使用的Composition API进行了封装</li> <li>类似于vue2.x中的mixin</li> <li>自定义hook的优势:复用代码,让setup中的逻辑更清楚易懂</li></ul> <h1 id="_7-toref"><a href="#_7-toref" class="header-anchor">#</a> 7.toRef</h1> <ul><li><p>作用:创建一个<strong>ref</strong>对象,其<strong>value</strong>值指向另一个对象中的某个属性</p></li> <li><p>语法</p> <div class="language- extra-class"><pre class="language-text"><code>const name=toRef(person,'name')
+</code></pre></div></li> <li><p>应用:要将响应式对象中的某个属性单独提供给外部使用</p></li> <li><p>扩展:<strong>toRef</strong>和<strong>toRefs</strong>功能一致,但可以批量创建多个ref对象,语法:</p> <div class="language- extra-class"><pre class="language-text"><code>toRefs(person)
+</code></pre></div></li></ul> <h1 id="_8-其它composition-api"><a href="#_8-其它composition-api" class="header-anchor">#</a> 8.其它Composition API</h1> <ul><li><h4 id="shallowreactive和shallowref"><a href="#shallowreactive和shallowref" class="header-anchor">#</a> shallowReactive和shallowRef</h4> <ul><li><strong>shallowReactive</strong>:只处理对象最外层的响应式(浅响应式)</li> <li><strong>shallowRef</strong>: 只处理基本数据类型的响应式,不进行对象的响应式</li> <li>什么时候使用?
+<ul><li>如果又一个对象数据,结构比较深,但变卦时只是外层属性变化====&gt;<strong>shallowReactive</strong></li> <li>如果有一个对象数据,后续功能不会修改该对象中的属性,而是生新的对象来替代====&gt;<strong>shallowRefÏ</strong></li></ul></li></ul></li> <li><h4 id="readonly和shallowreadonly"><a href="#readonly和shallowreadonly" class="header-anchor">#</a> readonly和shallowReadonly</h4> <ul><li>readonly:让一个响应式的数据变为只读(深只读)</li> <li>shallowReadonly:让一个响应式数据变为只读的(浅只读)</li> <li>应用场景:不希望数据被修改时</li></ul></li> <li><h4 id="toraw与markraw"><a href="#toraw与markraw" class="header-anchor">#</a> toRaw与markRaw</h4> <ul><li>toRew
+<ul><li>作用:讲一个有<strong>reactive</strong>生成的<strong>响应式数据</strong>转为<strong>普通对象</strong></li> <li>使用场景:用于读取响应式对象对应的普通对象,对这个普通对象的所有操作,不会引起页面的更新</li></ul></li> <li>markRaw
+<ul><li>作用:标记一个对象,使其<strong>永远不会变成响应式对象</strong></li> <li>应用场景:
+<ul><li>有些值不应该被响应式的,例如复杂的第三方库</li> <li>当渲染具有不可变数据源的大列表的时候,跳过响应式转换可以提高性能</li></ul></li></ul></li></ul></li> <li><h4 id="customref"><a href="#customref" class="header-anchor">#</a> customRef</h4> <ul><li><p>作用:创建一个自定义的ref,并对其依赖项跟踪和更新触发进行显示控制</p></li> <li><p>实现防抖效果</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;h1&gt;自定义ref&lt;/h1&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;text&quot; v-model=&quot;keyword&quot; /&gt;
+    &lt;span&gt;{{ keyword }}&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { customRef } from &quot;@vue/reactivity&quot;;
+export default {
+  setup() {
+    // 防抖函数的实现
+    function useCustomRef(value, delay = 2000) {
+      return customRef((track, trigger) =&gt; {
+        let timer;
+        return {
+          get() {
+            console.log(value, &quot;get&quot;);
+            track();
+            return value;
+          },
+          set(newVal) {
+            console.log(newVal, &quot;值被修改l1111&quot;);
+            clearTimeout(timer);
+            timer = setTimeout(() =&gt; {
+              //默认等待2s之后再执行
+              value = newVal;
+              trigger();
+            }, delay);
+          },
+        };
+      });
+    }
+    let keyword = useCustomRef(&quot;hello&quot;, 1000);
+    return {
+      keyword,
+    };
+  },
+};
+&lt;/script&gt;
+
+&lt;style&gt;
+&lt;/style&gt;
+</code></pre></div></li></ul></li> <li><h4 id="provide与inject"><a href="#provide与inject" class="header-anchor">#</a> provide与inject</h4> <ul><li><p>作用:实现<strong>祖孙之间</strong>的通信Ï</p></li> <li><p>套路:父组件有一个<strong>provide</strong>选项来提供数据,孙组件有<strong>inject</strong>选项来使用这些数据</p></li> <li><p>具体写法</p> <ul><li><p>祖组件写法</p> <div class="language- extra-class"><pre class="language-text"><code>import { reactive,toRefs, provide } from &quot;vue&quot;; //引入provide
+ setup() {
+    let person = reactive({
+      name: &quot;章三&quot;,
+      age: 24,
+      job: 20,
+    });
+
+    provide(&quot;user&quot;, person);
+
+    return {
+      ...toRefs(person),
+    };
+  },
+</code></pre></div></li> <li><p>孙组件接收</p> <div class="language- extra-class"><pre class="language-text"><code>import { inject } from &quot;vue&quot;;
+setup() {
+    let person = inject(&quot;user&quot;);
+    return {
+      person,
+    };
+  },
+</code></pre></div></li></ul></li> <li></li></ul></li> <li><h4 id="响应式数据的判断"><a href="#响应式数据的判断" class="header-anchor">#</a> 响应式数据的判断</h4> <ul><li><strong>isRef</strong>:检查一个值是否是<strong>ref</strong>对象</li> <li><strong>isReactive</strong>:检查一个对象是否是由<strong>reactive</strong>创建的响应式对象</li> <li><strong>isReadonly</strong>:检查一个对象是否是由<strong>readonly</strong>创建的只读代理</li> <li><strong>isProxy</strong>:检查一个对象是否是由<strong>reactive</strong>或者<strong>readonly</strong>方法创建的代理对象</li></ul></li></ul> <h1 id="_9-composition-api的优势"><a href="#_9-composition-api的优势" class="header-anchor">#</a> 9.Composition API的优势</h1> <ol><li><h4 id="options-api-存在的问题-vue2-配置式"><a href="#options-api-存在的问题-vue2-配置式" class="header-anchor">#</a> Options API 存在的问题(vue2) 配置式</h4> <p>使用传统的Options API 新增或者修改一个需求,就需要分别在data,methods,computed里修改</p> <div class="language- extra-class"><pre class="language-text"><code>export default{
+   data(){},
+   methods:{},
+   computed:{}
+}
+</code></pre></div></li> <li><h4 id="composition-api-的优势-vue3-组合式"><a href="#composition-api-的优势-vue3-组合式" class="header-anchor">#</a> Composition API 的优势(vue3) 组合式</h4> <p>我们可以更加优雅的组织我们的代码,函数.让相关功能更加有序的组织在一起.</p></li></ol> <h1 id="_10-新的组件"><a href="#_10-新的组件" class="header-anchor">#</a> 10.新的组件</h1> <ul><li><h4 id="fragment"><a href="#fragment" class="header-anchor">#</a> Fragment</h4> <ul><li>在vue2中:组件必须有一个根元素</li> <li>在vue3中:组件可以没有根标签,内部会讲多个标签包含在一个Fragment虚拟元素中</li> <li>好处:减少标签层级,减少内存占用</li></ul></li> <li><p>Teleport</p> <ul><li><p>可以将组件里面嵌套很深的组件,移动到body里面</p></li> <li><p>实现代码:<strong>teleport</strong></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;teleport to=&quot;body&quot;&gt;
+    &lt;div class=&quot;panel&quot; v-if=&quot;isShow&quot; @click=&quot;closeDialog&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;
+        这是一个弹框
+        &lt;div&gt;这是一些内容&lt;/div&gt;
+        &lt;button &gt;关闭弹框&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/teleport&gt;
+</code></pre></div></li></ul></li> <li><h4 id="suspense"><a href="#suspense" class="header-anchor">#</a> Suspense</h4> <ul><li><p>等待异步组件时渲染一些额外内容,让应用有更好的用户体验</p></li> <li><p>使用步骤</p> <ul><li>异步引入组件</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+import { defineAsyncComponent } from &quot;vue&quot;;
+const Child = defineAsyncComponent(() =&gt; import(&quot;../components/Child.vue&quot;)); //异步引入
+</code></pre></div><ul><li><p>使用<strong>suspense</strong>包裹组件,并配置好<strong>default</strong>和<strong>fallback</strong></p> <div class="language- extra-class"><pre class="language-text"><code>&lt;Suspense&gt;
+    &lt;template v-slot:default&gt;
+      &lt;Child&gt;&lt;/Child&gt;
+    &lt;/template&gt;
+    &lt;template v-slot:fallback&gt;
+      &lt;span&gt;....加载中&lt;/span&gt;
+    &lt;/template&gt;
+  &lt;/Suspense&gt;
+</code></pre></div></li></ul></li></ul> <h1 id="_11-其它"><a href="#_11-其它" class="header-anchor">#</a> 11.其它</h1> <ul><li><p>data选项应始终被声明为一个函数。</p></li> <li><p>过度类名的更改：</p> <ul><li><p>Vue2.x写法</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.v-enter,
+.v-leave-to</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.v-leave,
+.v-enter-to</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>Vue3.x写法</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.v-enter-from,
+.v-leave-to</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.v-leave-from,
+.v-enter-to</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></li> <li><p><strong style="color:#DD5145;">移除</strong>keyCode作为 v-on 的修饰符，同时也不再支持<code>config.keyCodes</code></p></li> <li><p><strong style="color:#DD5145;">移除</strong><code>v-on.native</code>修饰符</p> <ul><li><p>父组件中绑定事件</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-component</span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>close</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleComponentEvent<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleNativeClickEvent<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+</code></pre></div></li> <li><p>子组件中声明自定义事件</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">emits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'close'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li></ul></li> <li><p><strong style="color:#DD5145;">移除</strong>过滤器（filter）</p> <blockquote><p>过滤器虽然这看起来很方便，但它需要一个自定义语法，打破大括号内表达式是 “只是 JavaScript” 的假设，这不仅有学习成本，而且有实现成本！建议用方法调用或计算属性去替换过滤器。</p></blockquote></li> <li><p>......</p></li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.175be109.js" defer></script><script src="/assets/js/2.3e96f17d.js" defer></script><script src="/assets/js/8.c93df86c.js" defer></script>
+  </body>
+</html>

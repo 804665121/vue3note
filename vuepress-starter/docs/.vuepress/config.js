@@ -1,7 +1,7 @@
 module.exports = {
     title: 'Hello Vue3笔记',
     description: 'Just playing around',
-    base:'/',
+    base:'/vue3note/',
     themeConfig:{
         displayAllHeaders: true, // 默认值：false
         smoothScroll: true,
