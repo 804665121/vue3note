@@ -53,6 +53,7 @@ module.exports = {
             }
 
         ],
-        repo:''
+        repo:'https://github.com/804665121/vue3note',
+        docsDir: 'vuepress-starter/docs',
     }
   }
